@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS</title>
+		<style>
+		body{
+		font-family:tahoma;
+		}
+		#second{
+		width:400px;
+		height:300px;
+		border-radius:10px;
+		background-color:white;
+		box-shadow:0px 0px 10px grey;
+		margin:100px auto;
+		padding:5px;
+		}
+		h1{
+		color:black;
+		text-align:center;
+		}
+		label{
+		margin:17px;
+		font-size:18px;
+		}
+		input[type='date']{
+		display:block;
+		margin:15px;
+		font-size:18px;
+		transition:0.5s all;
+		}
+		input[type='date']:focus{
+		border-color:#007BFF
+		}
+		input::placeholder{
+		color:#999;
+		}
+		button{
+		margin:15px;
+		font-size:15px;
+		padding:8px 13px;
+		color:white;
+		background:#00A9FF;
+		border:0px;
+		border-radius:3px;
+		}
+		#ans{
+		width:360px;
+		padding:18px 0px;
+		background:#f0f0f0;
+		margin:0 auto;
+		margin-top:10px;
+		border-radius:3px;
+		text-align:center;
+		color:black;
+		font-size:100;
+		}
+		</style>
+	</head>
+	<body>
+		<script>
+		function calculate(){
+		const dob=new Date(document.getElementById('dob').value);
+		const today=new Date();
+		
+		if(isNaN(dob.getTime())){
+		document.getElementById('ans').innerHTML='Please enter a valid date.';
+		return;
+		}
+		let age=today.getFullYear() - dob.getFullYear();
+		const monthdiff=today.getMonth() - dob.getMonth();
+		if(monthdiff<0 || (monthdiff===0 && today.getDate()<dob.getDate())){
+		age--;
+		 }
+		console.log(today.getFullYear());
+		console.log(dob.getFullYear())
+		console.log(dob,typeof dob);
+		console.log(today,typeof today);
+		console.log(isNaN(dob.getTime()),dob.getTime());
+		console.log(monthdiff);
+		console.log(today.getDate(),typeof (today.getDate()));
+		console.log(dob.getDate(),typeof (dob.getDate()));
+		document.getElementById('ans').innerHTML='Your are '+ age+' years old.';
+		}
+		</script>
+		
+			<div id='second'>
+			<h1>Age Calculator</h1>
+			<label for='dob'>Enter Your Date of Birth:</label>
+				<input type='date' id='dob' min='1965-01-01'>
+			<button onclick='calculate()'>Calculate</button>
+			<p id='ans'></p>
+			</div>
+	</body>
+</html>

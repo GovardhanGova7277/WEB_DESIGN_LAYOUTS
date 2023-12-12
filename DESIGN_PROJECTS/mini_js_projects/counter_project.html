@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0px;
+background-image:linear-gradient(to right bottom,#000000,#262A56);
+}
+#box1{
+width:500px;
+height:500px;
+background-image:linear-gradient(to right bottom,#000000,#262A56);
+margin:50px auto;
+filter:drop-shadow(0px 0px 5px white);
+}
+h1{
+font-size:72px;
+font-family: 'Poppins', sans-serif;
+text-align:center;
+background:-webkit-linear-gradient(#ffffff 70%,#000000);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+#main-box{
+width:270px;
+height:270px;
+border:10px solid white;
+border-radius:80px;
+margin:0 auto;
+}
+
+h2{
+margin:30px;
+font-size:100px;
+font-family: 'Poppins', sans-serif;
+-border:1px solid white;
+display:inline;
+color:white;
+}
+#some{
+width:230px;
+height:50px;
+-border:2px solid white;
+margin:20px;
+
+}
+#but1{
+float:left;
+padding:5px 20px;
+font-size:41px;
+background:transparent;
+border:10px solid white;
+border-radius:40px;
+color:white;
+}
+#but2{
+float:right;
+padding:11px 20px;
+font-size:30px;
+background:transparent;
+border:10px solid white;
+border-radius:40px;
+color:white;
+}
+</style>
+</head>
+<body>
+<div id='box1'>
+<h1>Counter</h1>
+<div id='main-box'>
+	
+	<h2 id='count-value'>0</h2>
+	
+	<div id='some'>
+	<button id='but1' onclick='less()'>-</button>
+	<button id='but2' onclick='more()'>+</button>
+	</div>
+</div>
+</div>
+<script>
+var count=0;
+function more(){
+count++;
+document.getElementById('count-value').innerHTML=`${count}`;
+}
+function less(){
+if(count===0){
+return;
+}
+else{
+count--;
+document.getElementById('count-value').innerHTML=`${count}`;
+}
+}
+</script>
+</body>
+</html>
